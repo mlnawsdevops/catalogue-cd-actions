@@ -1,0 +1,18 @@
+name: cd-caller
+
+on:
+  workflow_dispatch:  # manual trigger, can also be workflow_run if you want automatic
+
+jobs:
+  cd:
+    uses: mlnawsdevops/reusable-workflows/.github/workflows/common-cd.yml@main
+    with:
+      project: roboshop
+      component: catalogue
+      deploy_repo: joindevops-actions/catalogue-deploy
+      branch: ${{ github.ref_name }} # branching is important only in deployment
+      appVersion: "ENTER_VERSION_HERE"  # Replace manually or pass from CI output
+      aws_account_id: "160885265516"
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
