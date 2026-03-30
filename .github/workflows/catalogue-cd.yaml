@@ -9,7 +9,7 @@ jobs:
     with:
       project: roboshop
       component: catalogue
-      deploy_repo: joindevops-actions/catalogue-deploy
+      deploy_repo: mlnawsdevops/catalogue-cd-actions
       branch: ${{ github.ref_name }} # branching is important only in deployment
       appVersion: "ENTER_VERSION_HERE"  # Replace manually or pass from CI output
       aws_account_id: "160885265516"
